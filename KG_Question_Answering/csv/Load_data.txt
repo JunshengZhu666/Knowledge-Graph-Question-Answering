@@ -1,0 +1,41 @@
+1, Put the csv files under neo4j import: C:\Users\JZ\Desktop\neo4j-community-4.0.11\import
+
+
+2, load the csv files, run the following code in neo4j brower one by one
+
+// load the diseases_transition_cow
+LOAD CSV WITH HEADERS FROM 'file:///Diseases_Transition_Cow.csv' AS line
+MERGE (p:Diseases { 
+did:toInteger(line.did),
+dname:line.dname
+})
+
+//load the nutrition_strategy
+LOAD CSV WITH HEADERS FROM 'file:///Nutrition_Strategy.csv' AS line
+MERGE (p:Nutrition { 
+nid:toInteger(line.nid),
+nname:line.nname
+})
+
+//load the Prevent
+LOAD CSV WITH HEADERS FROM "file:///Prevent.csv" AS line 
+match (from:Nutrition{nid:toInteger(line.nid)}),(to:Diseases{did:toInteger(line.did)})
+merge (from)-[r:prevent{nid:toInteger(line.nid), did:toInteger(line.did)}]->(to)
+
+//load the Relate
+LOAD CSV WITH HEADERS FROM "file:///Relate.csv" AS line 
+match (from:Diseases{did:toInteger(line.did)}),(to:Diseases{did:toInteger(line.did)})
+merge (from)-[r:relate{did:toInteger(line.did), did:toInteger(line.did)}]->(to)
+
+//load the Cause
+LOAD CSV WITH HEADERS FROM "file:///Cause.csv" AS line 
+match (from:Nutrition{nid:toInteger(line.nid)}),(to:Diseases{did:toInteger(line.did)})
+merge (from)-[r:cause{nid:toInteger(line.nid), did:toInteger(line.did)}]->(to)
+
+
+//Merge the Same Symptoms as one node
+MATCH (n:Symptoms)
+WITH n.sname AS sname, COLLECT(n) AS nodelist, COUNT(*) AS count
+WHERE count > 1
+CALL apoc.refactor.mergeNodes(nodelist) YIELD node
+RETURN node
