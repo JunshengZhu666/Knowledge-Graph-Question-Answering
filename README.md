@@ -7,7 +7,7 @@ This is a pipeline of knowledge graph construction and question answering on dar
 
 1, An dictionary tagger used to tag the research papers as the BIO(bigin - in - out) tagging format with domain dictionary entity. This component speed up the corpus preperation process.
 
-2, An named entity recognition model using Bi-LSTM neural network. 
+2, A named entity recognition model using Bi-LSTM neural network. 
 
 3, A relation extraction model using BERT. 
 
