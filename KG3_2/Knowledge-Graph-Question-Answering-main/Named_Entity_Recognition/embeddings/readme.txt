@@ -1,0 +1,1 @@
+download 'glove.6B.100d' from https://nlp.stanford.edu/data/glove.6B.zip
