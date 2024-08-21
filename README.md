@@ -1,8 +1,8 @@
 # Knowledge-Graph-Question-Answering
 
-# 1, A flow chart representing the main experimental procedures
-
-![0_overall_procedures](https://user-images.githubusercontent.com/77312114/156826689-6c272c00-cd66-4c28-9b0e-a3bfa9e03623.png)
+# 1, Some Charts
+![image](https://github.com/user-attachments/assets/61717ed5-1828-4864-ac75-7ed3a204f6a8)
+![image](https://github.com/user-attachments/assets/91efd249-e274-49bc-8f6b-0f2c4e214538)
 
 # 2, File contents
 
@@ -30,6 +30,5 @@ A fully connected pipeline of KG3_2 but using bio-medical neural model without t
 
 2, A relation extraction model with few-shoting learning
 
-# 2, References
-
-updating
+### Publish 
+https://www.sciencedirect.com/science/article/pii/S0168169923007184
