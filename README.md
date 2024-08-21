@@ -31,4 +31,5 @@ A fully connected pipeline of KG3_2 but using bio-medical neural model without t
 2, A relation extraction model with few-shoting learning
 
 ### Publish 
+Automated extraction of domain knowledge in the dairy industry
 https://www.sciencedirect.com/science/article/pii/S0168169923007184
